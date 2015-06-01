@@ -133,6 +133,24 @@ CandyShop.SlashCommands = (function(self, Candy, $) {
 		$('.room-pane:visible').find('.message-pane').empty();
 	};
 
+	/** Function: nickChange
+	 * function to change nickname
+	 * if my additions look crappy,
+	 * correct/beautify them, keep in mind
+	 * i am not a js coder
+	 */
+	self.nick = function(args) {
+		args = args.split(' ');
+		var nick = args[0];
+		//QnD, if empty its sent to the chan as regular msg incl. /
+		//maybe add some cleaning/checking to all the variables
+		// dunno how much in/out checking the candy stuff does
+		// should do some research...
+		if (nick) {
+ 			Candy.Core.Action.Jabber.SetNickname(nick);	
+		}
+	};
+
 	/** Function: available
 	 * Change the current user's XMPP status to "available" with an optional message
 	 * Parameters:
